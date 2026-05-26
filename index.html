@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syed Huma Shah</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#6366f1;--secondary:#8b5cf6;--accent:#ec4899;--dark:#0f172a;--card:#1e293b;--text:#e2e8f0;--muted:#94a3b8}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--dark);color:var(--text);overflow-x:hidden}
+a{color:var(--primary);text-decoration:none;transition:color .2s}
+a:hover{color:var(--accent)}
+
+/* Animated gradient background */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;background:linear-gradient(-45deg,#0f172a,#1e1b4b,#312e81,#1e1b4b);background-size:400% 400%;animation:gradientShift 12s ease infinite;padding:2rem}
+@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+/* Floating particles */
+.particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.particle{position:absolute;border-radius:50%;opacity:.15;animation:float linear infinite}
+@keyframes float{0%{transform:translateY(100vh) rotate(0deg)}100%{transform:translateY(-100px) rotate(720deg)}}
+
+.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;background:linear-gradient(135deg,#c084fc,#ec4899,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem}
+.hero .tagline{font-size:clamp(1rem,2.5vw,1.4rem);color:var(--muted);max-width:700px;margin-bottom:1.5rem;line-height:1.6}
+.hero .funfact{font-size:.95rem;color:var(--accent);font-style:italic;margin-bottom:2rem}
+.social-links{display:flex;gap:1.2rem;flex-wrap:wrap;justify-content:center}
+.social-links a{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1.2rem;border:1px solid rgba(99,102,241,.4);border-radius:999px;font-size:.9rem;color:var(--text);transition:all .3s}
+.social-links a:hover{background:var(--primary);border-color:var(--primary);color:#fff;transform:translateY(-2px);box-shadow:0 4px 20px rgba(99,102,241,.4)}
+
+nav{position:fixed;top:0;width:100%;background:rgba(15,23,42,.85);backdrop-filter:blur(12px);z-index:100;padding:.8rem 0;border-bottom:1px solid rgba(99,102,241,.15)}
+nav ul{display:flex;justify-content:center;gap:2rem;list-style:none}
+nav a{color:var(--muted);font-size:.9rem;font-weight:500;transition:color .2s}
+nav a:hover{color:var(--accent)}
+
+section{max-width:1100px;margin:0 auto;padding:5rem 1.5rem}
+.section-title{font-size:2rem;font-weight:700;margin-bottom:2.5rem;text-align:center;background:linear-gradient(135deg,#c084fc,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* Experience Timeline */
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--primary),var(--accent))}
+.timeline-item{position:relative;margin-bottom:2.5rem;padding-left:1.5rem}
+.timeline-item::before{content:'';position:absolute;left:-2rem;top:.4rem;width:14px;height:14px;border-radius:50%;background:var(--primary);border:3px solid var(--dark);z-index:1}
+.timeline-item h3{font-size:1.1rem;color:#fff;margin-bottom:.2rem}
+.timeline-item .company{color:var(--accent);font-size:.9rem;margin-bottom:.2rem}
+.timeline-item .date{color:var(--muted);font-size:.8rem;margin-bottom:.5rem}
+.timeline-item p{color:var(--muted);font-size:.9rem;line-height:1.6}
+
+/* Project Cards */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
+.project-card{background:var(--card);border-radius:16px;padding:1.8rem;border:1px solid rgba(99,102,241,.15);transition:all .3s;position:relative;overflow:hidden}
+.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--accent));transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.project-card:hover{transform:translateY(-4px);border-color:rgba(99,102,241,.4);box-shadow:0 8px 30px rgba(99,102,241,.15)}
+.project-card:hover::before{transform:scaleX(1)}
+.project-card h3{font-size:1.1rem;color:#fff;margin-bottom:.5rem}
+.project-card .tech{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.8rem}
+.project-card .tech span{font-size:.7rem;padding:.2rem .6rem;background:rgba(99,102,241,.15);color:var(--primary);border-radius:999px}
+.project-card p{font-size:.85rem;color:var(--muted);line-height:1.6;margin-bottom:1rem}
+.project-card .links a{margin-right:1rem;font-size:.85rem;font-weight:600}
+
+/* Skills */
+.skills-grid{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
+.skill-tag{padding:.5rem 1rem;background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.2);border-radius:999px;font-size:.85rem;color:var(--text);transition:all .3s}
+.skill-tag:hover{background:var(--primary);color:#fff;transform:scale(1.05)}
+
+/* Hobbies */
+.hobbies-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.5rem}
+.hobby-card{background:var(--card);border-radius:16px;padding:2rem;text-align:center;border:1px solid rgba(139,92,246,.15);transition:all .3s}
+.hobby-card:hover{transform:translateY(-4px);border-color:rgba(236,72,153,.4);box-shadow:0 8px 30px rgba(236,72,153,.1)}
+.hobby-card .emoji{font-size:2.5rem;margin-bottom:.8rem}
+.hobby-card h3{font-size:1.1rem;color:#fff;margin-bottom:.5rem}
+.hobby-card p{font-size:.85rem;color:var(--muted);line-height:1.5}
+
+/* Awards */
+.awards-list{list-style:none;display:grid;gap:1rem}
+.awards-list li{background:var(--card);padding:1.2rem 1.5rem;border-radius:12px;border-left:3px solid var(--accent);font-size:.9rem;color:var(--muted);line-height:1.5}
+.awards-list li strong{color:#fff}
+
+/* Footer */
+footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,241,.15);color:var(--muted);font-size:.85rem}
+
+/* Scroll animations */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .6s,transform .6s}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:640px){
+  nav ul{gap:1rem;font-size:.8rem}
+  .projects-grid{grid-template-columns:1fr}
+  section{padding:3rem 1rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#hobbies">Beyond Code</a></li>
+<li><a href="#awards">Awards</a></li>
+</ul>
+</nav>
+
+<header class="hero" id="about">
+<div class="particles" id="particles"></div>
+<h1>Syed Huma Shah</h1>
+<p class="tagline">Machine Learning Engineer & Researcher building production-grade AI systems across healthcare, autonomous vehicles, energy, and sustainability. Currently pursuing my M.S. in Data Science at Duke University.</p>
+<p class="funfact">Fun fact: I can solve a sudoku puzzle in under 2 minutes</p>
+<div class="social-links">
+<a href="https://www.linkedin.com/in/syedhumashah" target="_blank">LinkedIn</a>
+<a href="https://github.com/syedhumarahim" target="_blank">GitHub</a>
+<a href="https://medium.com/@shummashah" target="_blank">Medium</a>
+<a href="mailto:shummashah@gmail.com">Email</a>
+</div>
+</header>
+
+<section id="experience">
+<h2 class="section-title fade-in">Experience</h2>
+<div class="timeline">
+
+<div class="timeline-item fade-in">
+<h3>Graduate ML Researcher</h3>
+<div class="company">Duke Dept. of Surgery & Anesthesiology</div>
+<div class="date">Aug 2025 - May 2026</div>
+<p>Built MambaTwin, a selective state-space digital twin on 17,133 MIMIC-IV ICU patients for trajectory forecasting and counterfactual rollout. Achieved R&sup2; > 0.90 on 3 biomarkers with zero-shot cross-institution transfer to Emory ICU data.</p>
+</div>
+
+<div class="timeline-item fade-in">
+<h3>Data Science Research Intern</h3>
+<div class="company">Duke University</div>
+<div class="date">May 2025 - Jul 2025</div>
+<p>Fine-tuned SciBERT on USDA grant data with ontology-aware masking. Built hybrid BERTopic + LDA + UMAP topic-modeling pipeline over 80k+ records (1933-2024) for public-health decision support.</p>
+</div>
+
+<div class="timeline-item fade-in">
+<h3>Senior Machine Learning Engineer</h3>
+<div class="company">Clearquote Technologies, UK (Remote)</div>
+<div class="date">Mar 2024 - Aug 2024</div>
+<p>Deployed YOLOv8 perception model for real-time vehicle inspection, reducing manual QA by 80% across 10,000+ daily images. Boosted license-plate OCR accuracy from 60% to 90%.</p>
+</div>
+
+<div class="timeline-item fade-in">
+<h3>Data Scientist</h3>
+<div class="company">ION Energy (Altergo), USA (Remote)</div>
+<div class="date">Apr 2022 - Mar 2024</div>
+<p>Built LangChain + GPT-3.5 LLM agent for digital-blueprinting (900% efficiency gain). Productionized EV-range forecasting improving planning accuracy by 20%. Built anomaly detection for battery telemetry.</p>
+</div>
+
+<div class="timeline-item fade-in">
+<h3>Software Engineer - Data Science</h3>
+<div class="company">TripAI, Dallas, USA (Remote)</div>
+<div class="date">Jun 2021 - Jan 2022</div>
+<p>Built dynamic-pricing ML system for RV rentals (+30% revenue, +25% bookings). Developed optimization models for aircraft load planning and ML-driven carbon-emissions prediction.</p>
+</div>
+
+<div class="timeline-item fade-in">
+<h3>AI Researcher / Senior Research Assistant</h3>
+<div class="company">Geotech Consultants, Srinagar</div>
+<div class="date">Aug 2019 - Jun 2021</div>
+<p>Built Gaussian Process models for solar-irradiance forecasting, improving grid efficiency by 15%. Led national renewable-integration energy-modeling project for the Ladakh region.</p>
+</div>
+
+</div>
+</section>
+
+<section id="projects">
+<h2 class="section-title fade-in">Selected Projects & Research</h2>
+<div class="projects-grid">
+
+<div class="project-card fade-in">
+<h3>DiffuJudge-AV</h3>
+<div class="tech"><span>vLLM</span><span>NVIDIA NIM</span><span>NVILA</span><span>Claude</span></div>
+<p>Calibrated VLM-as-a-Judge framework for autonomous-driving video release gates. 28,400 judge runs across multiple VLMs. Demonstrated grounded VLM judge achieves ~38x cheaper with superior safety metrics. Published on Towards Data Science.</p>
+<div class="links">
+<a href="https://github.com/syedhumarahim/diffujudge-av" target="_blank">GitHub &rarr;</a>
+</div>
+</div>
+
+<div class="project-card fade-in">
+<h3>GroundedCache</h3>
+<div class="tech"><span>Python</span><span>vLLM</span><span>FAISS</span><span>Qwen2.5</span></div>
+<p>Safety-first cache router for RAG serving stacks. 4-gate evidence-validated router evaluated across 12,000 real-LLM generations. Reduced unsafe-served rate from 15-51% to 0.0-1.5% (34x reduction). Paper submitted to arXiv.</p>
+<div class="links">
+<a href="https://github.com/syedhumarahim/grounded-cache-router" target="_blank">GitHub &rarr;</a>
+<a href="https://github.com/syedhumarahim/grounded-cache-router/blob/main/cache_llm.pdf" target="_blank">Paper &rarr;</a>
+</div>
+</div>
+
+<div class="project-card fade-in">
+<h3>MambaTwin: ICU Digital Twins</h3>
+<div class="tech"><span>Mamba</span><span>PyTorch</span><span>MIMIC-IV</span></div>
+<p>Selective state-space digital twin for 17,133 ICU patients. Multivariate trajectory forecasting with treatment-conditioned counterfactual rollout. Zero-shot cross-institution transfer with R&sup2; = 0.810 on Emory data.</p>
+<div class="links"><span style="color:var(--muted);font-size:.85rem">Duke Capstone Research</span></div>
+</div>
+
+<div class="project-card fade-in">
+<h3>SAE Circuit Probe</h3>
+<div class="tech"><span>PyTorch</span><span>Sparse Autoencoders</span><span>UMAP</span></div>
+<p>Mechanistic interpretability of a toy transformer. Reproduced OpenAI's SAE-based interpretability pipeline, tracing single-head copy-and-compare circuits with UMAP visualizations confirming equality-vs-inequality clusters.</p>
+<div class="links">
+<a href="https://lnkd.in/eCt_gHhP" target="_blank">Notebook &rarr;</a>
+</div>
+</div>
+
+<div class="project-card fade-in">
+<h3>Memory Avatar</h3>
+<div class="tech"><span>Multimodal RAG</span><span>Voice Synthesis</span><span>LLM</span></div>
+<p>Explainable multimodal LLM system with client-side RAG, embedding-based attribution, alignment scoring, and per-response decision traces for safety-critical conversational AI.</p>
+<div class="links">
+<a href="https://github.com/syedhumarahim/memory-avatar" target="_blank">GitHub &rarr;</a>
+</div>
+</div>
+
+<div class="project-card fade-in">
+<h3>SanAssist</h3>
+<div class="tech"><span>Databricks</span><span>AWS</span><span>GPT-2</span><span>LoRA</span><span>Docker</span></div>
+<p>GenAI healthcare data platform with end-to-end ETL pipeline. Fine-tuned GPT-2 + LoRA (perplexity 3.32, outperforming Med-PaLM). Scaled to 10,000 concurrent users via Docker + AWS App Runner.</p>
+<div class="links">
+<a href="https://github.com/syedhumarahim/sanassist" target="_blank">GitHub &rarr;</a>
+</div>
+</div>
+
+<div class="project-card fade-in">
+<h3>LLM Interpretability Toolkit</h3>
+<div class="tech"><span>GPT-3.5</span><span>BioBERT</span><span>Attention Maps</span></div>
+<p>Explainability wrappers using attention heatmaps, token provenance cards, and faithfulness scores for biomedical prompts. Ongoing research into transparent AI for healthcare.</p>
+<div class="links"><span style="color:var(--muted);font-size:.85rem">Ongoing Research</span></div>
+</div>
+
+<div class="project-card fade-in">
+<h3>CourseCompass</h3>
+<div class="tech"><span>SciBERT</span><span>GPT-3.5</span><span>Embeddings</span></div>
+<p>LLM-powered course planner using dual-stage reranking integrated with Duke APIs and calendar tools. Mimics user preference drift and calendar alignment for AGI-style task generalization.</p>
+<div class="links"><span style="color:var(--muted);font-size:.85rem">Duke Project</span></div>
+</div>
+
+</div>
+</section>
+
+<section id="skills">
+<h2 class="section-title fade-in">Technical Skills</h2>
+<div class="skills-grid fade-in">
+<span class="skill-tag">Python</span>
+<span class="skill-tag">PyTorch</span>
+<span class="skill-tag">TensorFlow</span>
+<span class="skill-tag">JAX</span>
+<span class="skill-tag">Hugging Face</span>
+<span class="skill-tag">LangChain</span>
+<span class="skill-tag">vLLM</span>
+<span class="skill-tag">NVIDIA NIM</span>
+<span class="skill-tag">FastAPI</span>
+<span class="skill-tag">CUDA</span>
+<span class="skill-tag">ONNX</span>
+<span class="skill-tag">TensorRT</span>
+<span class="skill-tag">Docker</span>
+<span class="skill-tag">Kubernetes</span>
+<span class="skill-tag">AWS</span>
+<span class="skill-tag">GCP</span>
+<span class="skill-tag">Azure ML</span>
+<span class="skill-tag">MLflow</span>
+<span class="skill-tag">Weights & Biases</span>
+<span class="skill-tag">Databricks</span>
+<span class="skill-tag">Spark</span>
+<span class="skill-tag">FAISS</span>
+<span class="skill-tag">Qdrant</span>
+<span class="skill-tag">PostgreSQL</span>
+<span class="skill-tag">MongoDB</span>
+<span class="skill-tag">Transformers</span>
+<span class="skill-tag">VLMs</span>
+<span class="skill-tag">Mamba</span>
+<span class="skill-tag">Diffusion Models</span>
+<span class="skill-tag">RLHF / DPO</span>
+<span class="skill-tag">LoRA / QLoRA</span>
+<span class="skill-tag">Mechanistic Interpretability</span>
+<span class="skill-tag">Sparse Autoencoders</span>
+<span class="skill-tag">Conformal Prediction</span>
+<span class="skill-tag">RAG</span>
+<span class="skill-tag">Computer Vision</span>
+<span class="skill-tag">Time Series</span>
+<span class="skill-tag">Causal Inference</span>
+<span class="skill-tag">CI/CD</span>
+<span class="skill-tag">GitHub Actions</span>
+</div>
+</section>
+
+<section id="hobbies">
+<h2 class="section-title fade-in">Beyond Code</h2>
+<p style="text-align:center;color:var(--muted);margin-bottom:2.5rem;max-width:700px;margin-left:auto;margin-right:auto;line-height:1.7">At my core, I'm driven by a love for mathematics, patterns, and understanding complex systems &mdash; which is what drew me to AI and machine learning. But that same fascination with patterns shows up everywhere in my life.</p>
+
+<div class="hobbies-grid">
+
+<div class="hobby-card fade-in">
+<div class="emoji">&#127859;</div>
+<h3>Cooking</h3>
+<p>I love cooking Wazwan (Kashmiri cuisine), Italian, Thai, Indo-Chinese, and Mexican. There's a beautiful math to flavor balancing and fermentation.</p>
+</div>
+
+<div class="hobby-card fade-in">
+<div class="emoji">&#127912;</div>
+<h3>Painting</h3>
+<p>Portraits and landscapes are my medium. I find the interplay of light, perspective, and color deeply mathematical.</p>
+</div>
+
+<div class="hobby-card fade-in">
+<div class="emoji">&#128038;</div>
+<h3>Birdwatching & Nature</h3>
+<p>Inspired by nature and the hidden mathematics within it &mdash; Fibonacci spirals, fractal branching, flocking algorithms. Birds are living proof that elegance and efficiency coexist.</p>
+</div>
+
+<div class="hobby-card fade-in">
+<div class="emoji">&#128087;</div>
+<h3>Fashion</h3>
+<p>Fashion is pattern recognition in another form &mdash; texture, symmetry, cultural signal processing. I love how design systems mirror computational thinking.</p>
+</div>
+
+<div class="hobby-card fade-in">
+<div class="emoji">&#128290;</div>
+<h3>Mathematics & Patterns</h3>
+<p>From sudoku to complex systems, I'm endlessly drawn to the hidden structures that govern our world. Math is the language I think in.</p>
+</div>
+
+</div>
+</section>
+
+<section id="awards">
+<h2 class="section-title fade-in">Awards, Patents & Publications</h2>
+<ul class="awards-list">
+<li class="fade-in"><strong>Patent:</strong> A hybrid machine-learning-based three-layer architecture for medical-ailment detection &mdash; silent hypoxia detection system.</li>
+<li class="fade-in"><strong>Patent:</strong> A wearable device for monitoring COVID biomarkers with two-tier alert system using machine learning techniques.</li>
+<li class="fade-in"><strong>702k+ views</strong> across articles on Towards Data Science, Medium, and Analytics Vidhya.</li>
+<li class="fade-in"><strong>50% Duke MS tuition scholarship</strong> and Dean's Research Award.</li>
+<li class="fade-in"><strong>AWS Machine Learning Scholarship 2021</strong> by Udacity and AWS.</li>
+<li class="fade-in"><strong>Best Researcher 2020</strong> at Geotech Consultants (awarded to 1 employee per year).</li>
+<li class="fade-in"><strong>HDFC Meritus Scholarship</strong> &mdash; top 0.5% nationally.</li>
+<li class="fade-in"><strong>IBM Quantum Computing Certificate</strong> (2020-2021) &mdash; 100% score.</li>
+</ul>
+</section>
+
+<section id="education" style="padding-bottom:2rem">
+<h2 class="section-title fade-in">Education</h2>
+<div class="timeline">
+<div class="timeline-item fade-in">
+<h3>Duke University</h3>
+<div class="company">M.S. in Interdisciplinary Data Science</div>
+<div class="date">Aug 2024 - May 2026 &middot; 50% Tuition Scholarship</div>
+<p>Teaching Assistant for NLP & Design Technology Core II. Branding & Digital Media Head at Quantitative Finance and Analytics Club.</p>
+</div>
+<div class="timeline-item fade-in">
+<h3>Islamic University of Science & Technology</h3>
+<div class="company">B.Tech, Electrical Engineering</div>
+<div class="date">Aug 2015 - Aug 2019 &middot; CGPA 7.71/10</div>
+<p>Final project: Wearable SPAD-sensor obstacle-detection device for the visually impaired.</p>
+</div>
+</div>
+</section>
+
+<footer>
+<p>Syed Huma Shah &middot; North Carolina, USA &middot; <a href="mailto:shummashah@gmail.com">shummashah@gmail.com</a></p>
+<p style="margin-top:.5rem;font-size:.75rem;color:#475569">Built with curiosity and a love for patterns</p>
+</footer>
+
+<script>
+// Floating particles
+const container=document.getElementById('particles');
+for(let i=0;i<30;i++){
+  const p=document.createElement('div');
+  p.className='particle';
+  const size=Math.random()*6+2;
+  const colors=['#6366f1','#8b5cf6','#ec4899','#06b6d4'];
+  p.style.cssText=`width:${size}px;height:${size}px;background:${colors[Math.floor(Math.random()*colors.length)]};left:${Math.random()*100}%;animation-duration:${Math.random()*15+10}s;animation-delay:${Math.random()*10}s`;
+  container.appendChild(p);
+}
+
+// Scroll reveal
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})
+},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
