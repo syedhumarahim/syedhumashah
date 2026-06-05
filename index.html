@@ -124,14 +124,14 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
 <h3>Graduate ML Researcher</h3>
 <div class="company">Duke Dept. of Surgery & Anesthesiology</div>
 <div class="date">Aug 2025 - May 2026</div>
-<p>Built MambaTwin, a selective state-space digital twin on 17,133 MIMIC-IV ICU patients for trajectory forecasting and counterfactual rollout. Achieved R&sup2; > 0.90 on 3 biomarkers with zero-shot cross-institution transfer to Emory ICU data.</p>
+<p>MambaTwin (submitted to NeurIPS 2026): Built a 1.5M-parameter digital-twin simulation platform on Mamba backbone, trained on 17,133 MIMIC-IV ICU patients. R&sup2; > 0.90 on 3 biomarkers, calibrated 95% intervals (ECE 0.040), zero-shot cross-institution transfer to 214 Emory ICU patients (avg R&sup2; = 0.810).</p>
 </div>
 
 <div class="timeline-item fade-in">
 <h3>Data Science Research Intern</h3>
 <div class="company">Duke University</div>
 <div class="date">May 2025 - Jul 2025</div>
-<p>Fine-tuned SciBERT on USDA grant data with ontology-aware masking. Built hybrid BERTopic + LDA + UMAP topic-modeling pipeline over 80k+ records (1933-2024) for public-health decision support.</p>
+<p>PolicyReasoner: Built a symbolic Process Reward Model scoring reasoning steps against a time-varying agricultural policy ontology over 80K USDA grants. DPO-trained Qwen-2.5-7B and Llama-3.1-8B. Matched GPT-4o F1 at lower inference cost &mdash; first symbolic-PRM Constitutional-AI pipeline for safety-critical post-training.</p>
 </div>
 
 <div class="timeline-item fade-in">
@@ -156,9 +156,9 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
 </div>
 
 <div class="timeline-item fade-in">
-<h3>AI Researcher / Senior Research Assistant</h3>
+<h3>AI Researcher</h3>
 <div class="company">Geotech Consultants, Srinagar</div>
-<div class="date">Aug 2019 - Jun 2021</div>
+<div class="date">Aug 2019 - Jun 2021 (~2 yr)</div>
 <p>Built Gaussian Process models for solar-irradiance forecasting, improving grid efficiency by 15%. Led national renewable-integration energy-modeling project for the Ladakh region.</p>
 </div>
 
@@ -191,8 +191,8 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
 <div class="project-card fade-in">
 <h3>MambaTwin: ICU Digital Twins</h3>
 <div class="tech"><span>Mamba</span><span>PyTorch</span><span>MIMIC-IV</span></div>
-<p>Selective state-space digital twin for 17,133 ICU patients. Multivariate trajectory forecasting with treatment-conditioned counterfactual rollout. Zero-shot cross-institution transfer with R&sup2; = 0.810 on Emory data.</p>
-<div class="links"><span style="color:var(--muted);font-size:.85rem">Duke Capstone Research</span></div>
+<p>Submitted to NeurIPS 2026. 1.5M-parameter patient-specific digital-twin on Mamba backbone for calibrated forward simulation, treatment-conditioned counterfactual rollout via G-computation, and frozen-backbone risk prediction. 4-architecture comparison; zero-shot Emory transfer avg R&sup2; = 0.810.</p>
+<div class="links"><span style="color:var(--muted);font-size:.85rem">Submitted to NeurIPS 2026 &middot; Duke Capstone</span></div>
 </div>
 
 <div class="project-card fade-in">
@@ -223,10 +223,12 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
 </div>
 
 <div class="project-card fade-in">
-<h3>LLM Interpretability Toolkit</h3>
-<div class="tech"><span>GPT-3.5</span><span>BioBERT</span><span>Attention Maps</span></div>
-<p>Explainability wrappers using attention heatmaps, token provenance cards, and faithfulness scores for biomedical prompts. Ongoing research into transparent AI for healthcare.</p>
-<div class="links"><span style="color:var(--muted);font-size:.85rem">Ongoing Research</span></div>
+<h3>SimSensor-BEV</h3>
+<div class="tech"><span>PyBullet</span><span>CNN</span><span>Computer Vision</span><span>BEV Perception</span></div>
+<p>End-to-end sensor simulation &rarr; perception &rarr; evaluation loop. Built a fake depth/lidar sensor in PyBullet with realistic failure modes (distance noise, glass dropout, ghost reflections, quantization), projected into bird's-eye-view maps, then swept noise to measure exactly where perception breaks. Trained TinyBEVNet CNN denoiser that roughly triples overlap with ground truth. Runs on a laptop CPU in ~25 seconds.</p>
+<div class="links">
+<a href="https://github.com/syedhumarahim/simsensor-bev" target="_blank">GitHub &rarr;</a>
+</div>
 </div>
 
 <div class="project-card fade-in">
@@ -329,6 +331,7 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
 <ul class="awards-list">
 <li class="fade-in"><strong>Patent:</strong> A hybrid machine-learning-based three-layer architecture for medical-ailment detection &mdash; silent hypoxia detection system.</li>
 <li class="fade-in"><strong>Patent:</strong> A wearable device for monitoring COVID biomarkers with two-tier alert system using machine learning techniques.</li>
+<li class="fade-in"><strong>Paper:</strong> Grounded Cache Routing for Retrieval-Augmented Generation: When Is It Safe to Reuse an Answer?</li>
 <li class="fade-in"><strong>702k+ views</strong> across articles on Towards Data Science, Medium, and Analytics Vidhya.</li>
 <li class="fade-in"><strong>50% Duke MS tuition scholarship</strong> and Dean's Research Award.</li>
 <li class="fade-in"><strong>AWS Machine Learning Scholarship 2021</strong> by Udacity and AWS.</li>
