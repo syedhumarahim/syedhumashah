@@ -129,7 +129,7 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
 <h3>Graduate ML Researcher</h3>
 <div class="company">Duke Dept. of Surgery & Anesthesiology</div>
 <div class="date">Aug 2025 - May 2026</div>
-<p>MambaTwin (submitted to NeurIPS 2026): Built a 1.5M-parameter digital-twin simulation platform on Mamba backbone, trained on 17,133 MIMIC-IV ICU patients. R&sup2; > 0.90 on 3 biomarkers, calibrated 95% intervals (ECE 0.040), zero-shot cross-institution transfer to 214 Emory ICU patients (avg R&sup2; = 0.810).</p>
+<p>MambaTwin: Built a 1.5M-parameter digital-twin simulation platform on a Mamba backbone, trained on 17,133 MIMIC-IV ICU patients. R&sup2; > 0.90 on 3 biomarkers, calibrated 95% intervals (ECE 0.040), zero-shot cross-institution transfer to 214 Emory ICU patients (avg R&sup2; = 0.810).</p>
 </div>
 
 <div class="timeline-item fade-in">
@@ -180,7 +180,7 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
 <p>Calibrated VLM-as-a-Judge framework for autonomous-driving video release gates on Wayve LingoQA. 7-source perturbation cascade, Tweedie posterior-mean denoiser, ordinal split-conformal intervals across <strong>28,400 judge runs</strong> on Claude, Qwen2.5-VL-7B, and InternVL2-8B (vLLM on L40S/H100). Behavior taxonomy mapped to NHTSA pre-crash and ASAM OpenSCENARIO 1.x. Showed metric choice flips the AV release winner: grounded VLM judge hits &kappa; = 0.837, fail-F1 = 0.712 at <strong>~38&times; cheaper</strong> than text-only. Ships NVILA-8B + NVIDIA NIM deployment recipe.</p>
 <div class="links">
 <a href="https://github.com/syedhumarahim/diffujudge-av" target="_blank">GitHub &rarr;</a>
-<a href="https://towardsdatascience.com/author/shummashah/" target="_blank">Article &rarr;</a>
+<a href="https://towardsdatascience.com/diffujudge-av-a-diffusion-inspired-framework-for-calibrated-av-video-evaluation/" target="_blank">TDS Article &rarr;</a>
 </div>
 </div>
 
@@ -190,15 +190,15 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
 <p>Safety-first cache router for RAG serving stacks. 4-gate evidence-validated router (query similarity, evidence Jaccard, source-version, lexical support) sitting above vLLM Automatic Prefix Caching. Evaluated across <strong>12,000 real-LLM generations</strong> on HotpotQA and mtRAG &mdash; reduced unsafe-served rate from 15&ndash;51% (naive) to <strong>0.0&ndash;1.5% (34&times; reduction)</strong> at 1.04&ndash;1.07&times; no-cache latency. Introduced operator-facing safety metric (USR); paper submitted to arXiv.</p>
 <div class="links">
 <a href="https://github.com/syedhumarahim/grounded-cache-router" target="_blank">GitHub &rarr;</a>
-<a href="https://github.com/syedhumarahim/grounded-cache-router/blob/main/cache_llm.pdf" target="_blank">Paper &rarr;</a>
+<a href="https://arxiv.org/abs/2605.27494" target="_blank">arXiv Paper &rarr;</a>
 </div>
 </div>
 
 <div class="project-card fade-in">
 <h3>MambaTwin: ICU Digital Twins</h3>
 <div class="tech"><span>Mamba</span><span>PyTorch</span><span>MIMIC-IV</span><span>G-computation</span><span>Causal Inference</span><span>Transformers</span></div>
-<p>Submitted to NeurIPS 2026. 1.5M-parameter patient-specific digital-twin on Mamba backbone for calibrated forward simulation, treatment-conditioned counterfactual rollout via G-computation, and frozen-backbone risk prediction. 4-architecture comparison; zero-shot Emory transfer avg R&sup2; = 0.810.</p>
-<div class="links"><span style="color:var(--muted);font-size:.85rem">Submitted to NeurIPS 2026 &middot; Duke Capstone</span></div>
+<p>1.5M-parameter patient-specific digital-twin on Mamba backbone for calibrated forward simulation, treatment-conditioned counterfactual rollout via G-computation, and frozen-backbone risk prediction. 4-architecture comparison (Mamba vs GRU-D, LSTM, Transformer); zero-shot Emory transfer avg R&sup2; = 0.810, the only model whose accuracy improved under distribution shift.</p>
+<div class="links"><span style="color:var(--muted);font-size:.85rem">Duke Dept. of Surgery & Anesthesiology</span></div>
 </div>
 
 <div class="project-card fade-in">
@@ -215,7 +215,7 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
 <div class="tech"><span>Multimodal RAG</span><span>Voice Synthesis</span><span>LLM</span><span>Alignment</span><span>Attribution</span></div>
 <p>Explainable multimodal LLM system (text + audio) with client-side RAG, embedding-based attribution, <strong>alignment scoring</strong>, and per-response decision traces for transparent, personality-conditioned generation in emotionally sensitive contexts. Emphasizes interpretability, attribution, and refusal-aware behavior shaping for safety-critical conversational AI.</p>
 <div class="links">
-<a href="https://github.com/syedhumarahim/memory-avatar" target="_blank">GitHub &rarr;</a>
+<a href="https://github.com/syedhumarahim/AI-memory-avatar" target="_blank">GitHub &rarr;</a>
 </div>
 </div>
 
@@ -224,7 +224,7 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
 <div class="tech"><span>Databricks</span><span>AWS App Runner</span><span>GPT-2</span><span>LoRA</span><span>Docker</span><span>RAG</span><span>CI/CD</span></div>
 <p>GenAI healthcare data platform with end-to-end <strong>Databricks + Pandas ETL pipeline</strong> for ingestion, normalization, deduplication, and validation of multi-source clinical records feeding a RAG system. Fine-tuned GPT-2 + LoRA achieving <strong>perplexity 3.32</strong> (outperforming Med-PaLM on internal eval). Shipped via Docker + AWS App Runner with CI/CD, scaling to <strong>10,000 concurrent users</strong>.</p>
 <div class="links">
-<a href="https://github.com/syedhumarahim/sanassist" target="_blank">GitHub &rarr;</a>
+<a href="https://github.com/cpyang123/SanAssist" target="_blank">GitHub &rarr;</a>
 </div>
 </div>
 
@@ -241,7 +241,9 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
 <h3>CourseCompass</h3>
 <div class="tech"><span>SciBERT</span><span>GPT-3.5</span><span>Embeddings</span><span>Agents</span></div>
 <p>LLM-powered course planner & recommendation tool using SciBERT + GPT-3.5 + <strong>embedding-based dual-stage reranking</strong> integrated with Duke APIs and calendar tools. Mimics user preference drift, calendar alignment, and availability &mdash; useful for AGI-style task generalization.</p>
-<div class="links"><span style="color:var(--muted);font-size:.85rem">Duke Project</span></div>
+<div class="links">
+<a href="https://github.com/syedhumarahim/coursecompass" target="_blank">GitHub &rarr;</a>
+</div>
 </div>
 
 <div class="project-card fade-in">
@@ -389,8 +391,8 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
 <section id="awards">
 <h2 class="section-title fade-in">Awards, Patents & Publications</h2>
 <ul class="awards-list">
-<li class="fade-in"><strong>Patent:</strong> A hybrid machine-learning-based three-layer architecture for medical-ailment detection &mdash; silent hypoxia detection system.</li>
-<li class="fade-in"><strong>Patent:</strong> A wearable device for monitoring COVID biomarkers with two-tier alert system using machine learning techniques.</li>
+<li class="fade-in"><strong>Prov. Patent:</strong> A hybrid machine-learning-based three-layer architecture for medical-ailment detection &mdash; silent hypoxia detection system.</li>
+<li class="fade-in"><strong>Prov. Patent:</strong> A wearable device for monitoring COVID biomarkers with two-tier alert system using machine learning techniques.</li>
 <li class="fade-in"><strong>Paper:</strong> Grounded Cache Routing for Retrieval-Augmented Generation: When Is It Safe to Reuse an Answer?</li>
 <li class="fade-in"><strong>702k+ views</strong> across articles on Towards Data Science, Medium, and Analytics Vidhya.</li>
 <li class="fade-in"><strong>50% Duke MS tuition scholarship</strong> and Dean's Research Award.</li>
