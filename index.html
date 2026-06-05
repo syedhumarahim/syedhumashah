@@ -22,6 +22,8 @@ a:hover{color:var(--accent)}
 @keyframes float{0%{transform:translateY(100vh) rotate(0deg)}100%{transform:translateY(-100px) rotate(720deg)}}
 
 .hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;background:linear-gradient(135deg,#c084fc,#ec4899,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem}
+.hero-photo{width:180px;height:180px;border-radius:50%;object-fit:cover;margin-bottom:1.5rem;border:3px solid rgba(236,72,153,.5);box-shadow:0 8px 40px rgba(99,102,241,.3),0 0 0 6px rgba(99,102,241,.1);transition:transform .4s ease,box-shadow .4s ease;position:relative;z-index:2}
+.hero-photo:hover{transform:scale(1.05) rotate(-2deg);box-shadow:0 12px 50px rgba(236,72,153,.4),0 0 0 8px rgba(236,72,153,.15)}
 .hero .tagline{font-size:clamp(1rem,2.5vw,1.4rem);color:var(--muted);max-width:700px;margin-bottom:1.5rem;line-height:1.6}
 .hero .funfact{font-size:.95rem;color:var(--accent);font-style:italic;margin-bottom:2rem}
 .social-links{display:flex;gap:1.2rem;flex-wrap:wrap;justify-content:center}
@@ -98,6 +100,7 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
 <li><a href="#experience">Experience</a></li>
 <li><a href="#projects">Projects</a></li>
 <li><a href="#skills">Skills</a></li>
+<li><a href="#writing">Writing</a></li>
 <li><a href="#hobbies">Beyond Code</a></li>
 <li><a href="#awards">Awards</a></li>
 </ul>
@@ -105,6 +108,7 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
 
 <header class="hero" id="about">
 <div class="particles" id="particles"></div>
+<img src="huma.jpg" alt="Syed Huma Shah" class="hero-photo" onerror="this.style.display='none'">
 <h1>Syed Huma Shah</h1>
 <p class="tagline">Machine Learning Engineer & Researcher building production-grade AI systems across healthcare, autonomous vehicles, energy, and sustainability. Currently pursuing my M.S. in Data Science at Duke University.</p>
 <p class="funfact">Fun fact: I can solve a sudoku puzzle in under 2 minutes</p>
@@ -112,6 +116,7 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
 <a href="https://www.linkedin.com/in/syedhumashah" target="_blank">LinkedIn</a>
 <a href="https://github.com/syedhumarahim" target="_blank">GitHub</a>
 <a href="https://medium.com/@shummashah" target="_blank">Medium</a>
+<a href="https://towardsdatascience.com/author/shummashah/" target="_blank">Towards Data Science</a>
 <a href="mailto:shummashah@gmail.com">Email</a>
 </div>
 </header>
@@ -171,17 +176,18 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
 
 <div class="project-card fade-in">
 <h3>DiffuJudge-AV</h3>
-<div class="tech"><span>vLLM</span><span>NVIDIA NIM</span><span>NVILA</span><span>Claude</span></div>
-<p>Calibrated VLM-as-a-Judge framework for autonomous-driving video release gates. 28,400 judge runs across multiple VLMs. Demonstrated grounded VLM judge achieves ~38x cheaper with superior safety metrics. Published on Towards Data Science.</p>
+<div class="tech"><span>vLLM</span><span>NVIDIA NIM</span><span>NVILA</span><span>Claude</span><span>Qwen2.5-VL</span><span>Conformal Prediction</span></div>
+<p>Calibrated VLM-as-a-Judge framework for autonomous-driving video release gates on Wayve LingoQA. 7-source perturbation cascade, Tweedie posterior-mean denoiser, ordinal split-conformal intervals across <strong>28,400 judge runs</strong> on Claude, Qwen2.5-VL-7B, and InternVL2-8B (vLLM on L40S/H100). Behavior taxonomy mapped to NHTSA pre-crash and ASAM OpenSCENARIO 1.x. Showed metric choice flips the AV release winner: grounded VLM judge hits &kappa; = 0.837, fail-F1 = 0.712 at <strong>~38&times; cheaper</strong> than text-only. Ships NVILA-8B + NVIDIA NIM deployment recipe.</p>
 <div class="links">
 <a href="https://github.com/syedhumarahim/diffujudge-av" target="_blank">GitHub &rarr;</a>
+<a href="https://towardsdatascience.com/author/shummashah/" target="_blank">Article &rarr;</a>
 </div>
 </div>
 
 <div class="project-card fade-in">
 <h3>GroundedCache</h3>
-<div class="tech"><span>Python</span><span>vLLM</span><span>FAISS</span><span>Qwen2.5</span></div>
-<p>Safety-first cache router for RAG serving stacks. 4-gate evidence-validated router evaluated across 12,000 real-LLM generations. Reduced unsafe-served rate from 15-51% to 0.0-1.5% (34x reduction). Paper submitted to arXiv.</p>
+<div class="tech"><span>Python</span><span>vLLM</span><span>FAISS</span><span>Qwen2.5</span><span>RAG</span><span>HotpotQA</span></div>
+<p>Safety-first cache router for RAG serving stacks. 4-gate evidence-validated router (query similarity, evidence Jaccard, source-version, lexical support) sitting above vLLM Automatic Prefix Caching. Evaluated across <strong>12,000 real-LLM generations</strong> on HotpotQA and mtRAG &mdash; reduced unsafe-served rate from 15&ndash;51% (naive) to <strong>0.0&ndash;1.5% (34&times; reduction)</strong> at 1.04&ndash;1.07&times; no-cache latency. Introduced operator-facing safety metric (USR); paper submitted to arXiv.</p>
 <div class="links">
 <a href="https://github.com/syedhumarahim/grounded-cache-router" target="_blank">GitHub &rarr;</a>
 <a href="https://github.com/syedhumarahim/grounded-cache-router/blob/main/cache_llm.pdf" target="_blank">Paper &rarr;</a>
@@ -190,15 +196,15 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
 
 <div class="project-card fade-in">
 <h3>MambaTwin: ICU Digital Twins</h3>
-<div class="tech"><span>Mamba</span><span>PyTorch</span><span>MIMIC-IV</span></div>
+<div class="tech"><span>Mamba</span><span>PyTorch</span><span>MIMIC-IV</span><span>G-computation</span><span>Causal Inference</span><span>Transformers</span></div>
 <p>Submitted to NeurIPS 2026. 1.5M-parameter patient-specific digital-twin on Mamba backbone for calibrated forward simulation, treatment-conditioned counterfactual rollout via G-computation, and frozen-backbone risk prediction. 4-architecture comparison; zero-shot Emory transfer avg R&sup2; = 0.810.</p>
 <div class="links"><span style="color:var(--muted);font-size:.85rem">Submitted to NeurIPS 2026 &middot; Duke Capstone</span></div>
 </div>
 
 <div class="project-card fade-in">
 <h3>SAE Circuit Probe</h3>
-<div class="tech"><span>PyTorch</span><span>Sparse Autoencoders</span><span>UMAP</span></div>
-<p>Mechanistic interpretability of a toy transformer. Reproduced OpenAI's SAE-based interpretability pipeline, tracing single-head copy-and-compare circuits with UMAP visualizations confirming equality-vs-inequality clusters.</p>
+<div class="tech"><span>PyTorch</span><span>Sparse Autoencoders</span><span>UMAP</span><span>Mechanistic Interpretability</span></div>
+<p>Mechanistic interpretability of a toy transformer. Reproduced OpenAI's SAE pipeline (<em>Scaling and Evaluating Sparse Autoencoders, 2024</em>; <em>Weight-Sparse Transformers Have Interpretable Circuits, 2025</em>) on a transformer trained on a first-token / last-token equality task. Traced a single-head copy-and-compare circuit where the final position attends back to the first position via helper tokens; UMAP confirms the SAE sharpens equality-vs-inequality clusters.</p>
 <div class="links">
 <a href="https://lnkd.in/eCt_gHhP" target="_blank">Notebook &rarr;</a>
 </div>
@@ -206,8 +212,8 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
 
 <div class="project-card fade-in">
 <h3>Memory Avatar</h3>
-<div class="tech"><span>Multimodal RAG</span><span>Voice Synthesis</span><span>LLM</span></div>
-<p>Explainable multimodal LLM system with client-side RAG, embedding-based attribution, alignment scoring, and per-response decision traces for safety-critical conversational AI.</p>
+<div class="tech"><span>Multimodal RAG</span><span>Voice Synthesis</span><span>LLM</span><span>Alignment</span><span>Attribution</span></div>
+<p>Explainable multimodal LLM system (text + audio) with client-side RAG, embedding-based attribution, <strong>alignment scoring</strong>, and per-response decision traces for transparent, personality-conditioned generation in emotionally sensitive contexts. Emphasizes interpretability, attribution, and refusal-aware behavior shaping for safety-critical conversational AI.</p>
 <div class="links">
 <a href="https://github.com/syedhumarahim/memory-avatar" target="_blank">GitHub &rarr;</a>
 </div>
@@ -215,8 +221,8 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
 
 <div class="project-card fade-in">
 <h3>SanAssist</h3>
-<div class="tech"><span>Databricks</span><span>AWS</span><span>GPT-2</span><span>LoRA</span><span>Docker</span></div>
-<p>GenAI healthcare data platform with end-to-end ETL pipeline. Fine-tuned GPT-2 + LoRA (perplexity 3.32, outperforming Med-PaLM). Scaled to 10,000 concurrent users via Docker + AWS App Runner.</p>
+<div class="tech"><span>Databricks</span><span>AWS App Runner</span><span>GPT-2</span><span>LoRA</span><span>Docker</span><span>RAG</span><span>CI/CD</span></div>
+<p>GenAI healthcare data platform with end-to-end <strong>Databricks + Pandas ETL pipeline</strong> for ingestion, normalization, deduplication, and validation of multi-source clinical records feeding a RAG system. Fine-tuned GPT-2 + LoRA achieving <strong>perplexity 3.32</strong> (outperforming Med-PaLM on internal eval). Shipped via Docker + AWS App Runner with CI/CD, scaling to <strong>10,000 concurrent users</strong>.</p>
 <div class="links">
 <a href="https://github.com/syedhumarahim/sanassist" target="_blank">GitHub &rarr;</a>
 </div>
@@ -233,9 +239,18 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
 
 <div class="project-card fade-in">
 <h3>CourseCompass</h3>
-<div class="tech"><span>SciBERT</span><span>GPT-3.5</span><span>Embeddings</span></div>
-<p>LLM-powered course planner using dual-stage reranking integrated with Duke APIs and calendar tools. Mimics user preference drift and calendar alignment for AGI-style task generalization.</p>
+<div class="tech"><span>SciBERT</span><span>GPT-3.5</span><span>Embeddings</span><span>Agents</span></div>
+<p>LLM-powered course planner & recommendation tool using SciBERT + GPT-3.5 + <strong>embedding-based dual-stage reranking</strong> integrated with Duke APIs and calendar tools. Mimics user preference drift, calendar alignment, and availability &mdash; useful for AGI-style task generalization.</p>
 <div class="links"><span style="color:var(--muted);font-size:.85rem">Duke Project</span></div>
+</div>
+
+<div class="project-card fade-in">
+<h3>ECG Anomaly Detection</h3>
+<div class="tech"><span>LSTM</span><span>Deep Learning</span><span>Signal Processing</span></div>
+<p>Built an LSTM-based model for ECG anomaly detection achieving <strong>AUC of 0.93</strong>, using statistical features and filtering to classify abnormal heart signals. Featured tutorial article on Analytics Vidhya.</p>
+<div class="links">
+<a href="https://www.analyticsvidhya.com/blog/2023/02/anomaly-detection-in-ecg-signals-identifying-abnormal-heart-patterns-using-deep-learning/" target="_blank">Read Article &rarr;</a>
+</div>
 </div>
 
 </div>
@@ -282,8 +297,53 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
 <span class="skill-tag">Computer Vision</span>
 <span class="skill-tag">Time Series</span>
 <span class="skill-tag">Causal Inference</span>
+<span class="skill-tag">G-computation</span>
+<span class="skill-tag">BEV Perception</span>
+<span class="skill-tag">Sensor Simulation</span>
+<span class="skill-tag">Digital Twins</span>
+<span class="skill-tag">PyBullet</span>
+<span class="skill-tag">Triton Inference</span>
+<span class="skill-tag">SGLang</span>
+<span class="skill-tag">LiteLLM</span>
+<span class="skill-tag">Neural CDEs</span>
+<span class="skill-tag">XGBoost</span>
 <span class="skill-tag">CI/CD</span>
 <span class="skill-tag">GitHub Actions</span>
+</div>
+</section>
+
+<section id="writing">
+<h2 class="section-title fade-in">Writing & Publications</h2>
+<p style="text-align:center;color:var(--muted);margin-bottom:2rem;max-width:700px;margin-left:auto;margin-right:auto;line-height:1.7">My articles on Towards Data Science, Medium, and Analytics Vidhya have collectively reached <strong style="color:var(--accent)">702k+ readers</strong>.</p>
+<div class="projects-grid">
+
+<div class="project-card fade-in">
+<h3>Towards Data Science</h3>
+<div class="tech"><span>AI/ML</span><span>Author Page</span></div>
+<p>Featured author writing on LLM evaluation, VLM-as-a-Judge methodology, RAG safety, and applied machine learning research.</p>
+<div class="links">
+<a href="https://towardsdatascience.com/author/shummashah/" target="_blank">Read on TDS &rarr;</a>
+</div>
+</div>
+
+<div class="project-card fade-in">
+<h3>Analytics Vidhya</h3>
+<div class="tech"><span>Deep Learning</span><span>ECG</span><span>LSTM</span></div>
+<p>Anomaly Detection in ECG Signals &mdash; identifying abnormal heart patterns using deep learning. A practical walkthrough of LSTM-based time-series classification on medical signals.</p>
+<div class="links">
+<a href="https://www.analyticsvidhya.com/blog/2023/02/anomaly-detection-in-ecg-signals-identifying-abnormal-heart-patterns-using-deep-learning/" target="_blank">Read Article &rarr;</a>
+</div>
+</div>
+
+<div class="project-card fade-in">
+<h3>Medium</h3>
+<div class="tech"><span>Tutorials</span><span>ML Research</span></div>
+<p>Long-form technical writing on machine learning, generative AI, and research walk-throughs &mdash; from foundational concepts to practical deployment patterns.</p>
+<div class="links">
+<a href="https://medium.com/@shummashah" target="_blank">Read on Medium &rarr;</a>
+</div>
+</div>
+
 </div>
 </section>
 
