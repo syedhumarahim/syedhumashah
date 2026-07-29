@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Syed Huma Shah</title>
+<meta name="description" content="Motion portfolio for Syed Huma Shah, machine-learning engineer and researcher working across AI evaluation, VLMs, RAG safety, digital twins, and production ML.">
+<meta property="og:title" content="Syed Huma Shah — AI / ML Motion Portfolio">
+<meta property="og:description" content="AI, machine learning, design, and engineering work presented as a polished motion portfolio.">
+<meta property="og:image" content="og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Syed Huma Shah — AI / ML Motion Portfolio">
+<meta name="twitter:description" content="AI, machine learning, design, and engineering work presented as a polished motion portfolio.">
+<meta name="twitter:image" content="og.png">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--primary:#6366f1;--secondary:#8b5cf6;--accent:#ec4899;--dark:#0f172a;--card:#1e293b;--text:#e2e8f0;--muted:#94a3b8}
@@ -98,6 +106,72 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
   .projects-grid{grid-template-columns:1fr}
   section{padding:3rem 1rem}
 }
+
+/* 2026 motion portfolio layer */
+:root{--primary:#c7f84f;--secondary:#67f2df;--accent:#ff8a5c;--rose:#ff78ac;--dark:#080909;--card:#101414;--text:#f5f1e8;--muted:#a7b0aa;--line:rgba(245,241,232,.14);--mono:"SFMono-Regular","Cascadia Code","Roboto Mono",monospace}
+body{font-family:Inter,'Segoe UI',system-ui,-apple-system,sans-serif;background:radial-gradient(circle at var(--mx,70%) var(--my,20%),rgba(103,242,223,.13),transparent 22rem),linear-gradient(135deg,#070808 0%,#101514 46%,#090b0b 100%);color:var(--text)}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradient(rgba(199,248,79,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(103,242,223,.045) 1px,transparent 1px);background-size:76px 76px;transform:perspective(900px) rotateX(62deg) translateY(-22%);transform-origin:top;animation:gridDrift 18s linear infinite;opacity:.55}
+body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.24;background-image:url("data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");mix-blend-mode:screen}
+@keyframes gridDrift{to{background-position:76px 76px}}
+nav{background:rgba(8,9,9,.72);border-bottom:1px solid var(--line);box-shadow:0 12px 50px rgba(0,0,0,.26)}
+nav ul{gap:.35rem;overflow-x:auto;padding:0 1rem}
+nav a{display:block;color:#7e8782;border:1px solid transparent;border-radius:999px;padding:.55rem .8rem;font-family:var(--mono);font-size:.72rem;white-space:nowrap}
+nav a:hover{color:#111;background:var(--text);border-color:var(--text)}
+.hero{isolation:isolate;overflow:hidden;background:transparent;padding-top:7rem}
+.hero:before,.hero:after{content:"";position:absolute;border:1px solid rgba(103,242,223,.18);border-radius:50%;pointer-events:none;animation:orbit 30s linear infinite}
+.hero:before{width:72vw;height:72vw;right:-28vw;top:4vh}
+.hero:after{width:48vw;height:48vw;left:-18vw;bottom:-10vw;border-color:rgba(255,120,172,.16);animation-direction:reverse}
+@keyframes orbit{to{transform:rotate(360deg)}}
+#motion-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.62}
+.particles{z-index:1}
+.hero-inner{max-width:1260px;z-index:2;display:grid;grid-template-columns:minmax(260px,390px) minmax(0,1fr);gap:4.5rem;align-items:center}
+.hero-text .greeting{font-family:var(--mono);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:800}
+.hero h1{font-size:clamp(4.4rem,9vw,9.5rem);line-height:.82;letter-spacing:-.04em;background:none;-webkit-text-fill-color:var(--text);margin-bottom:1.4rem}
+.hero h1 span{display:block;color:var(--secondary);font-family:Georgia,"Times New Roman",serif;font-weight:500;text-shadow:0 0 38px rgba(103,242,223,.22)}
+.role-line{display:flex;gap:.5rem;flex-wrap:wrap;margin:0 0 1.4rem}
+.role-line span{border:1px solid var(--line);border-radius:999px;background:rgba(16,20,20,.7);padding:.5rem .7rem;color:#dbe5de;font:700 .66rem var(--mono)}
+.bio-panel{border-left:1px solid var(--primary);padding-left:1.45rem}
+.hero-text .bio{color:#d7ded7;font-size:1rem;max-width:760px}
+.hero-text .bio.muted{color:#99a39d}
+.metric-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin:1.4rem 0;background:var(--line);border:1px solid var(--line)}
+.metric-row span{background:rgba(16,20,20,.86);padding:1rem;font:700 .65rem var(--mono);color:var(--muted)}
+.metric-row b{display:block;color:var(--primary);font-size:1.35rem;margin-bottom:.2rem}
+.photo-orbit{position:relative;justify-self:center}
+.photo-orbit:before{content:"";position:absolute;inset:-18px;border:1px solid rgba(199,248,79,.28);border-radius:30px;transform:rotate(-3deg)}
+.photo-orbit:after{content:"";position:absolute;inset:12% -16% auto auto;width:56%;height:56%;border-radius:50%;background:radial-gradient(circle,rgba(103,242,223,.22),transparent 64%);filter:blur(24px);z-index:-1}
+.hero-photo{width:min(360px,76vw);height:auto;max-height:620px;border-radius:18px;border:1px solid rgba(245,241,232,.18);box-shadow:0 30px 90px rgba(0,0,0,.38);filter:saturate(.94) contrast(1.04);transform:rotate(.8deg)}
+.social-links{gap:.65rem}
+.social-links a,.project-card .links a{border-color:rgba(199,248,79,.35);color:var(--text);background:rgba(16,20,20,.68);font-family:var(--mono);font-size:.76rem}
+.social-links a:hover,.project-card .links a:hover{background:var(--primary);color:#111;border-color:var(--primary);box-shadow:0 12px 34px rgba(199,248,79,.2)}
+section{max-width:1240px}
+.section-title{text-align:left;font-size:clamp(2.5rem,5vw,5.8rem);line-height:.88;letter-spacing:-.04em;background:none;-webkit-text-fill-color:var(--text);margin-bottom:3rem}
+.section-title:before{content:"// ";color:var(--primary);font:800 .8rem var(--mono);letter-spacing:.16em;vertical-align:middle}
+.timeline{padding-left:0;display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.timeline:before{display:none}
+.timeline-item{margin:0;padding:1.6rem 1.7rem;background:rgba(16,20,20,.92);transition:transform .3s ease,background .3s ease}
+.timeline-item:hover{transform:translateX(6px);background:#151b1b}
+.timeline-item:before{display:none}
+.timeline-item h3,.project-card h3,.hobby-card h3{color:var(--text);letter-spacing:-.01em}
+.timeline-item .company{color:var(--secondary);font-family:var(--mono);font-size:.76rem}
+.timeline-item .date{color:var(--primary);font-family:var(--mono)}
+.projects-grid{grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.project-card,.hobby-card,.awards-list li{border-radius:0;background:linear-gradient(145deg,rgba(18,23,23,.96),rgba(10,12,12,.96));border:0;box-shadow:none}
+.project-card:before{height:100%;width:1px;right:0;left:auto;background:linear-gradient(var(--primary),transparent);transform:scaleY(0);transform-origin:top}
+.project-card:hover{transform:translateY(-6px);box-shadow:0 24px 70px rgba(0,0,0,.28);border-color:transparent}
+.project-card:hover:before{transform:scaleY(1)}
+.project-card .tech span,.skill-tag{background:rgba(103,242,223,.08);border:1px solid rgba(103,242,223,.18);color:#aef7ef;font-family:var(--mono)}
+.skills-grid{justify-content:flex-start}
+.skill-tag:hover{background:var(--secondary);color:#08100f}
+.hobbies-grid{grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.hobby-card .emoji{filter:saturate(.85)}
+.awards-list{background:var(--line);border:1px solid var(--line);gap:1px}
+.awards-list li{border-left:0}
+.awards-list li strong{color:var(--primary)}
+footer{border-top:1px solid var(--line);background:rgba(8,9,9,.7)}
+.fade-in{transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr;text-align:left}.photo-orbit{order:2}.hero h1{font-size:clamp(3.4rem,16vw,6rem)}.bio-panel{padding-left:1rem}.metric-row{grid-template-columns:1fr}.section-title{text-align:left}}
+@media(max-width:640px){nav ul{justify-content:flex-start}.hero{padding:6.4rem 1.15rem 3rem}.hero h1{font-size:clamp(3.2rem,17vw,4.6rem)}.projects-grid{grid-template-columns:1fr}.hero-text .bio{font-size:.94rem}.role-line span{font-size:.58rem}.social-links a{flex:1;justify-content:center}.hero:before{width:130vw;height:130vw;right:-80vw}.hero:after{width:92vw;height:92vw}.section-title{font-size:3rem}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
@@ -115,16 +189,27 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
 </nav>
 
 <header class="hero" id="about">
+<canvas id="motion-canvas" aria-hidden="true"></canvas>
 <div class="particles" id="particles"></div>
 <div class="hero-inner">
+<div class="photo-orbit">
 <img src="huma.PNG" alt="Syed Huma Shah" class="hero-photo" onerror="this.style.display='none'">
+</div>
 <div class="hero-text">
-<h1>Syed Huma Shah</h1>
-<p class="greeting">Hi, I'm Huma &#128075;</p>
+<p class="greeting">AI / machine learning / design engineering portfolio</p>
+<h1>Syed Huma <span>Shah</span></h1>
+<div class="role-line"><span>VLM evaluation</span><span>RAG safety</span><span>Digital twins</span><span>Motion interfaces</span></div>
+<div class="bio-panel">
 <p class="bio">I'm a machine learning engineer and researcher with 5 years of experience building AI systems that work in the real world. I've finished my M.S. in Data Science at Duke, and my work lives at the intersection of large language and vision-language models, autonomous systems, and AI safety and evaluation. The question that runs through almost everything I build is a simple one: <em>when can you actually trust what a model is doing?</em></p>
 <p class="bio muted">Recently, I worked on a calibrated VLM-as-a-judge framework for evaluating autonomous-driving video, a digital-twin simulation model for ICU patients, and a symbolic reward-model pipeline for verifiable reasoning. Before Duke, I spent years shipping production ML across healthcare, energy, and mobility, computer vision on edge hardware, forecasting systems, and LLM-powered tooling. I hold two provisional patents in ML-based health monitoring and have written ML explainers that have passed 102k views. I write about science and tech to give back to the community that taught me most of what I know.</p>
 <p class="bio muted">When I'm not building models, you'll find me painting landscapes and portraits, deep in a Formula 1 race, or cooking something in the kitchen. I especially love Kashmiri, Italian, Thai, and Mughlai cuisine, along with dishes from Yemeni, Jordanian, and Persian cuisines.</p>
 <p class="funfact">Fun fact: I can solve a sudoku puzzle in under 2 minutes &#9201;&#65039;</p>
+</div>
+<div class="metric-row" aria-label="Portfolio highlights">
+<span><b>5 yrs</b> production ML</span>
+<span><b>28.4k</b> VLM judge runs</span>
+<span><b>102k</b> ML readers</span>
+</div>
 <div class="social-links">
 <a href="https://www.linkedin.com/in/syedhumashah" target="_blank">LinkedIn</a>
 <a href="https://github.com/syedhumarahim" target="_blank">GitHub</a>
@@ -449,14 +534,79 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(99,102,24
 <script>
 // Floating particles
 const container=document.getElementById('particles');
-for(let i=0;i<30;i++){
+for(let i=0;i<42;i++){
   const p=document.createElement('div');
   p.className='particle';
   const size=Math.random()*6+2;
-  const colors=['#6366f1','#8b5cf6','#ec4899','#06b6d4'];
+  const colors=['#c7f84f','#67f2df','#ff8a5c','#ff78ac'];
   p.style.cssText=`width:${size}px;height:${size}px;background:${colors[Math.floor(Math.random()*colors.length)]};left:${Math.random()*100}%;animation-duration:${Math.random()*15+10}s;animation-delay:${Math.random()*10}s`;
   container.appendChild(p);
 }
+
+window.addEventListener('pointermove',event=>{
+  document.documentElement.style.setProperty('--mx',`${event.clientX}px`);
+  document.documentElement.style.setProperty('--my',`${event.clientY}px`);
+});
+
+const canvas=document.getElementById('motion-canvas');
+const ctx=canvas.getContext('2d');
+function drawGraph(time=0){
+  const rect=canvas.getBoundingClientRect();
+  const dpr=window.devicePixelRatio||1;
+  canvas.width=rect.width*dpr;
+  canvas.height=rect.height*dpr;
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  ctx.clearRect(0,0,rect.width,rect.height);
+  const root={x:rect.width*.58,y:rect.height*.58};
+  const domains=[
+    {x:rect.width*.72,y:rect.height*.30,c:'#67f2df'},
+    {x:rect.width*.80,y:rect.height*.48,c:'#ff8a5c'},
+    {x:rect.width*.70,y:rect.height*.70,c:'#ff78ac'},
+    {x:rect.width*.88,y:rect.height*.66,c:'#c7f84f'}
+  ];
+  ctx.lineWidth=1;
+  domains.forEach((node,i)=>{
+    ctx.strokeStyle=node.c+'75';
+    ctx.beginPath();
+    ctx.moveTo(root.x,root.y);
+    ctx.bezierCurveTo(root.x+80,root.y-150+i*70,node.x-120,node.y,node.x,node.y);
+    ctx.stroke();
+    for(let j=0;j<4;j++){
+      const tx=node.x+80+j*44;
+      const ty=node.y+(j-1.5)*28;
+      ctx.strokeStyle=node.c+'45';
+      ctx.beginPath();
+      ctx.moveTo(node.x,node.y);
+      ctx.bezierCurveTo(node.x+42,node.y,tx-35,ty,tx,ty);
+      ctx.stroke();
+      ctx.fillStyle=node.c;
+      ctx.globalAlpha=.45+.25*Math.sin(time/500+j+i);
+      ctx.beginPath();
+      ctx.arc(tx,ty,4,0,Math.PI*2);
+      ctx.fill();
+      ctx.globalAlpha=1;
+    }
+    ctx.fillStyle=node.c;
+    ctx.beginPath();
+    ctx.arc(node.x,node.y,8+Math.sin(time/650+i)*2,0,Math.PI*2);
+    ctx.fill();
+  });
+  ctx.fillStyle='#c7f84f';
+  ctx.beginPath();
+  ctx.arc(root.x,root.y,15+Math.sin(time/700)*3,0,Math.PI*2);
+  ctx.fill();
+  ctx.strokeStyle='rgba(245,241,232,.16)';
+  ctx.setLineDash([3,8]);
+  ctx.lineDashOffset=-time/90;
+  for(let i=0;i<5;i++){
+    ctx.beginPath();
+    ctx.ellipse(root.x+120,root.y-40,230+i*24,130+i*18,.45,0,Math.PI*2);
+    ctx.stroke();
+  }
+  ctx.setLineDash([]);
+  requestAnimationFrame(drawGraph);
+}
+requestAnimationFrame(drawGraph);
 
 // Scroll reveal
 const observer=new IntersectionObserver(entries=>{
